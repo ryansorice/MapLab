@@ -10,7 +10,7 @@ Location::~Location()
 {
 }
 
-std::string Location::GetLocationInfo()
+std::string Location::DisplayLocationInfo()
 {
-	return _name;
+	return "Location is " + _name + "\n";
 }
