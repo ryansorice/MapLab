@@ -1,20 +1,20 @@
 #include "Map.h"
-#include <string>
 
 
-Map::Map(std::string startingLocationName)
+Map::Map(std::string startLocationName)
 {
-	_currentLocation = new Location(startingLocationName);
+	CurrentLocation = new Location(startLocationName);
 }
+
 
 Map::~Map()
 {
 }
 
-void Map::Move(Location * newLocation)
+void Map::Move(Location *newLocation)
 {
 	_locationsVisited.push(newLocation);
-	_currentLocation = newLocation;
+	CurrentLocation = newLocation;
 }
 
 std::string Map::GetPathBackToHome()

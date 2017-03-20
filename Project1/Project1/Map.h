@@ -5,12 +5,12 @@ class Map
 {
 private:
 	std::stack<Location *> _locationsVisited;
+
 public:
-	Map(std::string startingLocationName);
+	Map(std::string startLocationName);
 	~Map();
 
-	Location *_currentLocation = nullptr;
+	Location * CurrentLocation = nullptr;
 	std::string GetPathBackToHome();
 	void Move(Location *newLocation);
 };
-
