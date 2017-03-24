@@ -28,7 +28,7 @@ int main()
 
 		switch (choice)
 		{
-			case 0: cout << "Exiting\n"; break;
+			case 0: break;
 			case 1: cout << "Current Location: " << map.CurrentLocation->DisplayLocationInfo(); break;
 			case 2: GoNorth(map); break;
 			case 3: GoEast(map); break;
@@ -40,22 +40,20 @@ int main()
 		system("pause");
 	}
 
-
-	system("pause");
 	return 0;
 }
 
 
 void GoNorth(Map &map)
 {
-	auto newLocation = map.CurrentLocation->North;
+	Location *newLocation = map.CurrentLocation->North;
 	int currentX = map.CurrentLocation->getX();
 	int currentY = map.CurrentLocation->getY();
 	if (newLocation == nullptr)
 	{
 		int newX = currentX;
 		int newY = currentY + 1;
-		auto existing = map.LookupLocationOnMap(newX, newY);
+		Location *existing = map.LookupLocationOnMap(newX, newY);
 
 		if (existing == nullptr)
 		{
@@ -69,6 +67,7 @@ void GoNorth(Map &map)
 		else
 		{
 			cout << "You've been here before. " << existing->DisplayLocationInfo();
+			newLocation = existing;
 		}
 		
 	}
@@ -82,14 +81,14 @@ void GoNorth(Map &map)
 }
 void GoSouth(Map &map)
 {
-	auto newLocation = map.CurrentLocation->South;
+	Location *newLocation = map.CurrentLocation->South;
 	int currentX = map.CurrentLocation->getX();
 	int currentY = map.CurrentLocation->getY();
 	if (newLocation == nullptr)
 	{
 		int newX = currentX;
 		int newY = currentY - 1;
-		auto existing = map.LookupLocationOnMap(newX, newY);
+		Location *existing = map.LookupLocationOnMap(newX, newY);
 
 		if (existing == nullptr)
 		{
@@ -103,6 +102,7 @@ void GoSouth(Map &map)
 		else
 		{
 			cout << "You've been here before. " << existing->DisplayLocationInfo();
+			newLocation = existing;
 		}	
 		
 	}
@@ -116,14 +116,14 @@ void GoSouth(Map &map)
 }
 void GoEast(Map &map)
 {
-	auto newLocation = map.CurrentLocation->East;
+	Location *newLocation = map.CurrentLocation->East;
 	int currentX = map.CurrentLocation->getX();
 	int currentY = map.CurrentLocation->getY();
 	if (newLocation == nullptr)
 	{
 		int newX = currentX + 1;
 		int newY = currentY;
-		auto existing = map.LookupLocationOnMap(newX, newY);
+		Location *existing = map.LookupLocationOnMap(newX, newY);
 
 		if (existing == nullptr)
 		{
@@ -137,6 +137,7 @@ void GoEast(Map &map)
 		else
 		{
 			cout << "You've been here before. " << existing->DisplayLocationInfo();
+			newLocation = existing;
 		}
 		
 	}
@@ -150,14 +151,14 @@ void GoEast(Map &map)
 }
 void GoWest(Map &map)
 {
-	auto newLocation = map.CurrentLocation->West;
+	Location *newLocation = map.CurrentLocation->West;
 	int currentX = map.CurrentLocation->getX();
 	int currentY = map.CurrentLocation->getY();
 	if (newLocation == nullptr)
 	{
 		int newX = currentX - 1;
 		int newY = currentY;
-		auto existing = map.LookupLocationOnMap(newX, newY);
+		Location *existing = map.LookupLocationOnMap(newX, newY);
 
 		if (existing == nullptr)
 		{
@@ -171,6 +172,7 @@ void GoWest(Map &map)
 		else
 		{
 			cout << "You've been here before. " << existing->DisplayLocationInfo();
+			newLocation = existing;
 		}
 
 	}

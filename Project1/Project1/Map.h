@@ -1,12 +1,12 @@
 #pragma once
-#include <stack>
+#include <queue>
 #include "Location.h"
 #include <unordered_map>
 
 class Map
 {
 private:
-	std::stack<Location *> _locationsVisited;
+	std::queue<Location *> _locationsVisited;
 	std::unordered_map<std::string, Location *> _mapLookup;
 public:
 	Map(std::string startLocationName);
