@@ -203,5 +203,6 @@ void GoWest(Map &map)
 }
 void PathToHome(Map &map)
 {
-
+	map.GetPathBackToHome();
+	return;
 }
