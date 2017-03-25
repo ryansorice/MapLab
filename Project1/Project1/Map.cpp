@@ -37,7 +37,6 @@ void Map::MapLayout(std::string coordinates, Location * locationPtr)
 std::string Map::GetPathBackToHome()
 {
 	std::string result = "Path back to Home:\n";
-
 	while (_locationsVisited.size() != 0)
 	{
 		result += _locationsVisited.top()->DisplayLocationInfo();
